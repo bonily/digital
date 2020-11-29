@@ -44,8 +44,6 @@ const AboutAsP = styled.p`
   margin: 0;
   margin-bottom: 6.7%;
 
-
-
   font-family: ${MAIN_TEXT_FONT};
   font-size: 16px;
   line-height: 26px;
@@ -79,7 +77,7 @@ const Button = styled.a`
   border-radius: 10px;
 `;
 
-const Main = () => {
+const Main: React.FunctionComponent = () => {
   return (
     <MainBlock>
       <ArticleBlock style={{position: `relative`}}>

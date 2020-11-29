@@ -10,6 +10,7 @@ const AnimationDiv = styled.div`
   height: 612.56px;
 
   background: url("./img/animation_bg.png") no-repeat;
+  z-index: -1;;
 `;
 
 const Men = styled.img`
@@ -108,7 +109,7 @@ const FourthSmallCircle = styled(SmallCircle)`
   animation-delay: 3s;
 `;
 
-const Animation = () => {
+const Animation: React.FunctionComponent = () => {
   return (
     <AnimationDiv>
       <AnimationBg src = "./img/animation.png" width = "646px" height = "490px" />

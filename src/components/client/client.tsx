@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import {MAIN_TEXT_FONT, MAX_WIDTH_DESKTOP} from '../../const';
+import {MAIN_TEXT_FONT, MAX_WIDTH_DESKTOP, H2, P} from '../../const';
 
 const clients = [`1`, `2`, `3`, `4`, `5`, `6`, `7`];
 
 const ClientSection = styled.section`
-  width: ${MAX_WIDTH_DESKTOP};
+  max-width: ${MAX_WIDTH_DESKTOP};
 
   margin-left: auto;
   margin-right: auto;
-  padding-left: 214px;
-  padding-top: 93px;
+  padding-left: 14%;
+  padding-top: 6%;
+  padding-bottom: 125px;
 
 
   background: #5A98D0;
@@ -19,25 +20,14 @@ const ClientSection = styled.section`
   box-sizing: border-box;
 `;
 
-const H2 = styled.h2`
+const H2Client = styled(H2)`
   display: inline-block;
   max-width: 230px;
 
-
-  margin: 0;
-  margin-right: 89px;
-
-
-  font-family: ${MAIN_TEXT_FONT};
-  font-size: 36px;
-  line-height: 46px;
-
-  letter-spacing: 0.05em;
-
-  color: #FFFFFF;
+  margin-bottom: 20px;
 `;
 
-const ClientP = styled.p`
+const ClientP = styled(P)`
   position: relative;
   display: inline-block;
   max-width: 540px;
@@ -45,20 +35,14 @@ const ClientP = styled.p`
 
   padding: 0;
   margin: 0;
-  margin-bottom: 123px;
-
-  font-family: Gilroy;
-  font-size: 16px;
-  line-height: 26px;
-
-  letter-spacing: 0.05em;
-
-  color: #FFFFFF;
-  opacity: 0.6;
+  margin-bottom: 115px;
 `;
 
 const Ul = styled.ul`
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 940px;
 
   margin: 0;
   padding: 0;
@@ -67,17 +51,41 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-  max-width: 235px;
+  width: 25%;
 
-  padding: 41px 46px;
+  padding-top: 41px;
+  padding-bottom: 43px;
 
   margin: 0;
+
+  font-family: ${MAIN_TEXT_FONT};
+  font-size: 20px;
+  line-height: 46px;
+  text-transform: uppercase;
+  text-align: center;
+
+  letter-spacing: 0.02em;
+
+  color: #F2F2F2;
+  box-sizing: border-box;
+
+  &:nth-child(-n+4) {
+    border-bottom: 1px solid #FFFFFF;
+  }
+  &:nth-child(-n+7) {
+    &:not(:nth-child(4)) {
+    border-right: 1px solid #FFFFFF;
+    }
+  }
+  &:last-child {
+    text-transform: none;
+  }
 `;
 
-const Client = () => {
+const Client: React.FunctionComponent = () => {
   return (
     <ClientSection>
-      <H2>Our Beloved Client</H2>
+      <H2Client>Our Beloved Client</H2Client>
       <ClientP>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</ClientP>
       <Ul>
         {clients.map((client, i) => {
@@ -85,6 +93,7 @@ const Client = () => {
             <Li key = {i}>logo client {client}</Li>
           );
         })}
+        <Li style={{background: `rgb(31,63,104, 0.2)`}}>More clients</Li>
       </Ul>
     </ClientSection>
   );

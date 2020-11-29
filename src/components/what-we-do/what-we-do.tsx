@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import styled from 'styled-components';
 import {MAIN_TEXT_FONT, MAX_WIDTH_DESKTOP} from '../../const';
@@ -15,21 +14,25 @@ const WeDoSection = styled.section`
 
 const WeDoBlock = styled.div`
   display: grid;
+  justify-content: space-between;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 100px;
   grid-row-gap: 100px;
 
-  padding-top: 190px;
-  padding-left: 213px;
-  padding-right: 213px;
+  max-width: 960px;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 14%;
+  padding-left: 6.5%;
 
   box-sizing: border-box;
 `;
 
 const H2 = styled.h2`
   position: absolute;
-  top: 187px;
-  left: 213px;
+  top: 12.3%;
+  left: 15.5%;
   max-width: 361px;;
 
   margin: 0;
@@ -63,26 +66,34 @@ const WeDoItem = styled.div`
 
     margin-top: 292px;
     margin-bottom: auto;
-    margin-left: 80px;
   }
 
   &:last-child {
-    margin-bottom: 212px;
+    margin-bottom: 214px;
   }
 `;
 
 // eslint-disable-next-line
 const WeDoImg = styled.div<{img: string}>`
   position: relative;
-  top: -17px;
+
+  top: ${({img}) => {
+    if (img === `tehnology`) {
+      return `-15px`;
+    } else if (img === `digital`) {
+      return `-21px`;
+    }
+    return `-17px`;
+  }};
+
   width: 232px;
   height: 202px;
 
   margin-left: ${({img}) => {
     if (img === `tehnology`) {
-      return `30px`;
+      return `26px`;
     } else if (img === `digital`) {
-      return `8px`;
+      return `0px`;
     }
     return 0;
   }};
@@ -90,12 +101,11 @@ const WeDoImg = styled.div<{img: string}>`
   margin-bottom: 35px;
 
   background: ${({img}) => `url(./img/${img}.png)`} no-repeat bottom center;
-
 `;
 
 const H3Item = styled.h3`
   margin: 0;
-  margin-bottom: 14px;
+  margin-bottom: 15px;
 
   font-family: ${MAIN_TEXT_FONT};
   font-size: 20px;
@@ -143,13 +153,12 @@ const ImgArrow = styled.img`
   margin-left: 24px;
 `;
 
-const WhatWeDo = () => {
+const WhatWeDo: React.FunctionComponent = () => {
   return (
     <WeDoSection>
       <H2>What we do to help our client grow in digital era,</H2>
       <WeDoBlock>
         {items.map((item, i) => {
-          console.log(item.img);
           return (<WeDoItem key = {i}>
             <WeDoImg img = {item.img} />
             <H3Item>{item.title}</H3Item>

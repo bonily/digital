@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {MAX_WIDTH_DESKTOP} from '../../const';
+import {Link} from 'react-router-dom';
 
 
 const HeaderBlock = styled.header`
@@ -35,7 +36,9 @@ const Button = styled.button`
 const Header: React.FunctionComponent = () => {
   return (
     <HeaderBlock>
-      <img src = "./img/logo.svg" width = "48px" height = "48px" alt = "Лого компании"/>
+      <Link to={`/`} onClick={() => scroll()}>
+        <img src = "./img/logo.svg" width = "48px" height = "48px" alt = "Лого компании"/>
+      </Link>
       <Button></Button>
     </HeaderBlock>
   );
